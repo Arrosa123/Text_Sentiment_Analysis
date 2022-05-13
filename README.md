@@ -16,7 +16,7 @@ We are currently gathering data to show the effects of negative texts or message
 
 ## languages and technologies used during this project:
 * Python
-* Mondo DB
+* Mongo DB
 * Machine learning
 * VS code
 * Jupyter Notebook
