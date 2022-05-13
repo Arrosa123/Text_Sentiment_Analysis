@@ -1,2 +1,3 @@
 print ("Hello World")
-Print ("I am working on my final project with my team members")
+print ("I am working on my final project with my team members")
+print ("I am very excited and nervous for our project")
