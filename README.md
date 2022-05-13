@@ -23,6 +23,7 @@ We are currently gathering data to show the effects of negative texts or message
 * Bootstrap
 * JavaScript/HTML
 * Plotly
+* Git
 
 
 ## Team members: 
