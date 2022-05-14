@@ -13,6 +13,8 @@ In social media, people can experess their opinions but sometimes it express the
 We are currently gathering data to show the effects of negative texts or messages on people. There is a direct correlation between them as we all know and a strong impact so we are trying to show the same through data visualization with graphs and tables.
 
 ## Data sources: (Working on it)
+- training.1600000.processed.noemoticon.csv 
+
 
 ## languages and technologies used during this project:
 * Python
