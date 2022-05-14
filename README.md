@@ -6,7 +6,7 @@ The exponential growth of social media has brought with it an increasing propaga
 
 ## Questions we hope to answer with this data:
 
-# Q.1: Why it is important to detect speech sentiments?
+# Q:1: Why it is important to detect speech sentiments?
 In social media, people can experess their opinions but sometimes it express their hatred, dislike, other negative emotions- it can hurt people in many ways. They might have felt that way due to their past experiences but someone's personal experience can not define one whole group of people. We have good and bad people in all races, countries, religions - it is not fair to blame the whole group for that. So if we can catch an negative text early enough to block it before other people read it.
 
 # Q:2: How the negative speech affect people?
