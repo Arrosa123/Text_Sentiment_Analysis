@@ -23,6 +23,10 @@ Plotly
 Git
 ## Team members:
 Arrosa Qayyum
+
 Ilan Prudhomme
+
 Nayan Barhate
+
 Kiran Dave
+
