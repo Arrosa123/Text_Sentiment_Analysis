@@ -10,17 +10,22 @@ In social media, people can experess their opinions but sometimes it express the
 Q:2: How the negative speech affect people?
 We are currently gathering data to show the effects of negative texts or messages on people. There is a direct correlation between them as we all know and a strong impact so we are trying to show the same through data visualization with graphs and tables.
 
-## Data sources: (Working on it)
-languages and technologies used during this project:
-Python
-Mongo DB
-Machine learning
-VS code
-Jupyter Notebook
-Bootstrap
-JavaScript/HTML
-Plotly
-Git
+## languages and technologies used during this project:
+- Python
+- PostgreSQL
+- Machine learning
+- pyspark.ml.feature
+- Tokenizer, StopWordsRemover, HashingTF, IDF, StringIndexer, VectorAssembler
+- pyspark.ml.Pipeline
+- pyspark.ml.classification.NaiveBayes
+- pyspark.ml.evaluation.BinaryClassificationEvaluator
+- VS code
+- Jupyter Notebook
+- Bootstrap
+- JavaScript/HTML
+- Plotly
+- Git
+
 ## Team members:
 Arrosa Qayyum
 
