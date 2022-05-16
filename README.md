@@ -15,6 +15,11 @@ We are currently gathering data to show the effects of negative texts or message
 ## Data sources: (Working on it)
 - training.1600000.processed.noemoticon.csv 
 
+## Database
+Sample data that mimics the expected the expected final database structure or schema
+Draft machine learning module is connected to the provisional database
+  - For our database, we will be using PostgreSQL by use of pgAdmin and we are also hosting our raw data in an AWS S3 bucket. This enables anyone with the access codes to work the project data. From machine learning model we are trying to get positive and negative text.
+
 
 ## languages and technologies used during this project:
 * Python
