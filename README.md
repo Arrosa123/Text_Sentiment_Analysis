@@ -16,6 +16,17 @@ We are currently gathering data to show the effects of negative texts or message
 - [Sentiment140 dataset with 1.6 million tweets](http://help.sentiment140.com/for-students)
   - [20k sample dataset (10k pos/10k neg)](./Resources/sentiment_analysis_10k.csv)
 
+## Machine Learning Model
+Using pyspark to create a data pipeline for NLP.  
+- I import a 20k sample of the dataset from an AWS S3 bucket
+- tokenized the data
+- removed the stopwords
+- use tf/idf to hash and vectorize the data
+- use Naive Bayes classifier to predict a positive or negative sentiment
+- Finally exporting the data to AWS RDS PostgreSQL instance.
+- I exported the test results data from the database to a csv file and checked it into github. 
+
+
 ## languages and technologies used during this project:
 * Python
 * PostgreSQL 
