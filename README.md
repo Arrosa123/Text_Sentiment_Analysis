@@ -20,6 +20,11 @@ We are currently gathering data to show the effects of negative texts or message
 * Python
 * Mongo DB
 * Machine learning
+    - pyspark.ml.feature
+    - Tokenizer, StopWordsRemover, HashingTF, IDF, StringIndexer, VectorAssembler
+    - pyspark.ml.Pipeline
+    - pyspark.ml.classification.NaiveBayes
+    - pyspark.ml.evaluation.BinaryClassificationEvaluator
 * VS code
 * Jupyter Notebook
 * Bootstrap
