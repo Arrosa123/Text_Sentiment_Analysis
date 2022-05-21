@@ -13,13 +13,17 @@ In social media, people can experess their opinions but sometimes it express the
 We are currently gathering data to show the effects of negative texts or messages on people. There is a direct correlation between them as we all know and a strong impact so we are trying to show the same through data visualization with graphs and tables.
 
 ## Data sources: (Working on it)
-* Kaggle
-* Git Hub
+
 
 ## languages and technologies used during this project:
 * Python
-* Mondo DB
+* Mongo DB
 * Machine learning
+   - pyspark.ml.feature
+        - Tokenizer, StopWordsRemover, HashingTF, IDF, StringIndexer, VectorAssembler
+   - pyspark.ml.Pipeline
+   - pyspark.ml.classification.NaiveBayes
+   - pyspark.ml.evaluation.BinaryClassificationEvaluator
 * VS code
 * Jupyter Notebook
 * Bootstrap
