@@ -22,14 +22,21 @@ import operator
 #sys.setdefaultencoding('utf-8')
 
 #Dataset provided 
-file = './sentiment_m140_.csv'
-twitter_df = pd.read_csv(file)
-twitter_df = twitter_df.rename(columns={"target": "polarity", "ids": "id", "flag" : "query"})
-twitter_df["new_date"] = twitter_df["date"]
+#file = './sentiment_m140_.csv'
+#twitter_df = pd.read_csv(file)
+#twitter_df = twitter_df.rename(columns={"target": "polarity", "ids": "id", "flag" : "query"})
+#twitter_df["new_date"] = twitter_df["date"]
 
+# 
+# REPLACE WITH CODE TO ACCESS FROM S3
+#
 #Dataset Created
-file = './sentiment_analysis_100k.csv' 
+file = './sentiment_analysis_10k.csv' 
 twitter_df = pd.read_csv(file,encoding = "ISO-8859-1")
+#
+#
+#
+
 
 
 print (twitter_df.shape)
