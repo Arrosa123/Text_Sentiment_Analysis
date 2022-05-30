@@ -14,6 +14,9 @@ We are currently gathering data to show the effects of negative texts or message
 
 ## Data sources: (Working on it)
 
+## Presentation: 
+[link to dashboard](https://docs.google.com/presentation/d/1JQpK-gHvPBrHtgzteNTrwzFp4QcuEgPoajs-kB3tmf4/edit#slide=id.g12f933adebf_0_124) to Google Slides Presentation
+
 
 ## languages and technologies used during this project:
 * Python
