@@ -15,6 +15,7 @@ We are currently gathering data to show the effects of negative texts or message
 ## Images and Graphs:
 - worked on to find data from kaggle and other websites
 - Found Survey data of 1257 people who using social media on kaggel
+- Found social media users data on https://ourworldindata.org/rise-of-social-media
 - Used Tableau to create graphs to analyze how many people using social media and how many feeling depress by using it
 
 
