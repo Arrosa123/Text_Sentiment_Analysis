@@ -12,7 +12,7 @@ In social media, people can experess their opinions but sometimes it express the
 # Q:2: How the negative speech affect people?
 We are currently gathering data to show the effects of negative texts or messages on people. There is a direct correlation between them as we all know and a strong impact so we are trying to show the same through data visualization with graphs and tables.
 
-Images:
+## Images and Graphs:
 - worked on to find data from kaggle and other websites
 - Found Survey data of 1257 people who using social media on kaggel
 - Used Tableau to create graphs to analyze how many people using social media and how many feeling depress by using it
