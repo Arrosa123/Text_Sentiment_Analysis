@@ -12,21 +12,32 @@ In social media, people can experess their opinions but sometimes it express the
 # Q:2: How the negative speech affect people?
 We are currently gathering data to show the effects of negative texts or messages on people. There is a direct correlation between them as we all know and a strong impact so we are trying to show the same through data visualization with graphs and tables.
 
-## Data sources: (Working on it)
-
 ## Presentation: 
 [link to dashboard](https://docs.google.com/presentation/d/1JQpK-gHvPBrHtgzteNTrwzFp4QcuEgPoajs-kB3tmf4/edit#slide=id.g12f933adebf_0_124) to Google Slides Presentation
 
+## Data sources: 
+- [Sentiment140 dataset with 1.6 million tweets](http://help.sentiment140.com/for-students)
+  - [20k sample dataset (10k pos/10k neg)](./Resources/sentiment_analysis_10k.csv)
+
+## Machine Learning Model
+Using pyspark to create a data pipeline for NLP.  
+- I import a 20k sample of the dataset from an AWS S3 bucket
+- tokenized the data
+- removed the stopwords
+- use tf/idf to hash and vectorize the data
+- use Naive Bayes classifier to predict a positive or negative sentiment
+- Finally exporting the data to AWS RDS PostgreSQL instance.
+- I exported the test results data from the database to a csv file and checked it into github. 
 
 ## languages and technologies used during this project:
 * Python
-* Mongo DB
+* PostgreSQL 
 * Machine learning
-   - pyspark.ml.feature
-        - Tokenizer, StopWordsRemover, HashingTF, IDF, StringIndexer, VectorAssembler
-   - pyspark.ml.Pipeline
-   - pyspark.ml.classification.NaiveBayes
-   - pyspark.ml.evaluation.BinaryClassificationEvaluator
+  * pyspark.ml.feature
+    * Tokenizer, StopWordsRemover, HashingTF, IDF, StringIndexer, VectorAssembler
+  * pyspark.ml.Pipeline
+  * pyspark.ml.classification.NaiveBayes
+  * pyspark.ml.evaluation.BinaryClassificationEvaluator
 * VS code
 * Jupyter Notebook
 * Bootstrap
