@@ -6,11 +6,14 @@ The exponential growth of social media has brought with it an increasing propaga
 
 ## Questions we hope to answer with this data:
 
-# Q.1: Why it is important to detect speech sentiments?
-In social media, people can express their opinions but sometimes it express their hatred, dislike, other negative emotions- it can hurt people in many ways. They might have felt that way due to their past experiences but someone's personal experience can not define one whole group of people. We have good and bad people in all races, countries, religions - it is not fair to blame the whole group for that. So if we can catch an negative text early enough to block it before other people read it.
+# Q:1: Why it is important to detect speech sentiments?
+In social media, people can experess their opinions but sometimes it express their hatred, dislike, other negative emotions- it can hurt people in many ways. They might have felt that way due to their past experiences but someone's personal experience can not define one whole group of people. We have good and bad people in all races, countries, religions - it is not fair to blame the whole group for that. So if we can catch an negative text early enough to block it before other people read it.
 
 # Q:2: How the negative speech affect people?
 We are currently gathering data to show the effects of negative texts or messages on people. There is a direct correlation between them as we all know and a strong impact so we are trying to show the same through data visualization with graphs and tables.
+
+## Presentation: 
+[link to dashboard](https://docs.google.com/presentation/d/1JQpK-gHvPBrHtgzteNTrwzFp4QcuEgPoajs-kB3tmf4/edit#slide=id.g12f933adebf_0_124) to Google Slides Presentation
 
 ## Data sources: 
 - [Sentiment140 dataset with 1.6 million tweets](http://help.sentiment140.com/for-students)
@@ -25,7 +28,6 @@ Using pyspark to create a data pipeline for NLP.
 - use Naive Bayes classifier to predict a positive or negative sentiment
 - Finally exporting the data to AWS RDS PostgreSQL instance.
 - I exported the test results data from the database to a csv file and checked it into github. 
-
 
 ## languages and technologies used during this project:
 * Python
@@ -42,6 +44,8 @@ Using pyspark to create a data pipeline for NLP.
 * JavaScript/HTML
 * Plotly
 * Git
+* AWS
+
 
 
 ## Team members: 
