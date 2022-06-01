@@ -49,10 +49,10 @@ def eval_text_single(text, polarity = 1.0):
     cleaned = cleaner.transform(data_df)
 
     # Load the saved NaiveBayes Classifier
-    nb = NaiveBayes.load("../static/resources/nb")
+    nb = NaiveBayes.load("static/resources/nb")
 
     #Restored the trained predictor (Trained on 1 mil tweets)
-    predictor = NaiveBayesModel.load("../static/resources/nb_model")
+    predictor = NaiveBayesModel.load("static/resources/nb_model")
 
     #Predict the sentiment of the text using the restored predictor
     test_results = predictor.transform(cleaned)
@@ -99,10 +99,10 @@ def eval_text_list(text_list):
     cleaned = cleaner.transform(data_df)
 
     # Load the saved NaiveBayes Classifier
-    nb = NaiveBayes.load("../static/resources/nb")
+    nb = NaiveBayes.load("static/resources/nb")
 
     #Restored the trained predictor (Trained on 1 mil tweets)
-    predictor = NaiveBayesModel.load("../static/resources/nb_model")
+    predictor = NaiveBayesModel.load("static/resources/nb_model")
 
     #Predict the sentiment of the text using the restored predictor
     test_results = predictor.transform(cleaned)
