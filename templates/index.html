@@ -20,10 +20,10 @@
 
       <!-- Add section for Eval Response -->
       <div class="row" id="text-eval">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="media">
             <div class="media-body">
-              <h2>Text Evaluation</h2>
+              <h2>Simple Text Evaluation</h2>
               <form action="/" method="post">
                   <label for="text-input">Input Text:</label>
                   <input type="text" id="text-input" name="text-input"><br><br>
@@ -33,6 +33,21 @@
               <p>Prediction: {{ eval.prediction }}</p>
               <p>Probability: {{ eval.probability }}</p>    
             </div>
+
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="media">
+            <div class="media-body">
+              <h2>Pull and Evaluate Current</h2>
+              <form action="/" method="post">
+                  <label for="text-area">Twitter Filter:</label>
+                  <textarea id="twitter-rules" name="twitter-rules" rows="4" cols="50"></textarea><br><br>
+                  <p><input type="submit" name="tweet-pull" value="tweet-pull"></p>
+              </form>
+              <p>Results: {{ eval_list }}</p>
+            </div>
+            
           </div>
         </div>
       </div>
