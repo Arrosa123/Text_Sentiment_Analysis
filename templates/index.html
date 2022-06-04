@@ -33,7 +33,6 @@
               <p>Prediction: {{ eval.prediction }}</p>
               <p>Probability: {{ eval.probability }}</p>    
             </div>
-
           </div>
         </div>
         <div class="col-md-6">
@@ -42,14 +41,50 @@
               <h2>Pull and Evaluate Current</h2>
               <form action="/" method="post">
                   <label for="text-area">Twitter Filter:</label>
-                  <textarea id="twitter-rules" name="twitter-rules" rows="4" cols="50"></textarea><br><br>
+                  <textarea id="twitter-rules" name="twitter-rules" rows="4" cols="50">{{session['rules']}}</textarea><br><br>
                   <p><input type="submit" name="tweet-pull" value="tweet-pull"></p>
               </form>
-              <p>Results: {{ eval_list }}</p>
+              <table>
+                <tr>
+                  <th>Text </th>
+                  <th>Prediction</th>
+                  <th>Probability</th>
+                </tr>
+              {% for evaluated in eval_list %}
+                <tr>
+                  <td>{{evaluated.text}}</td>
+                  <td>{{evaluated.prediction}}</td>
+                  <td>{{evaluated.probability}}</td>
+                </tr>
+              {% endfor %}
+              </table>
             </div>
             
           </div>
+
         </div>
+        <div class="col-md-12">
+          <div class="hashtags">
+            <div class="hashtags-body">
+              <h2>Trending Hashtags</h2>
+              <p><a class="btn btn-primary btn-lg active" href="/scrape" role="button">Update Hashtags</a></p>
+              <table>
+                <tr>
+                  <th>Rank </th>
+                  <th>Hashtag</th>
+                </tr>
+              {% for tw_trend in hashtag_data.tw_trends %}
+                <tr>
+                  <td>{{tw_trend.rank}}</td>
+                  <td>{{tw_trend.hashtag}}</td>
+                </tr>
+              {% endfor %}
+              </table>
+            </div>
+            
+          </div>
+
+        </div>        
       </div>
 
     
