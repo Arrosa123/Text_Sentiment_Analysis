@@ -3,9 +3,12 @@ import os
 import json
 import pandas as pd
 
+
 # To set your enviornment variables in your terminal run the following line:
 # export 'BEARER_TOKEN'='<your_bearer_token>'
-os.environ["BEARER_TOKEN"] = "AAAAAAAAAAAAAAAAAAAAACfadAEAAAAAEu%2BiDazzJXrG3YRA2t1qhrb6sgQ%3DFejl2o5q89gmYLIuEmdaZAOb4oHARh4f5sZHUy6UMbywrpNrdr"
+with open('myconfig.json','r') as fh:
+    config = json.load(fh)
+os.environ["BEARER_TOKEN"] = config["BEARER_TOKEN"]
 
 bearer_token = os.environ.get("BEARER_TOKEN")
 print(bearer_token)
@@ -135,5 +138,5 @@ def main():
 
 
 #if __name__ == "__main__":
-#    main()
+    main()
 
