@@ -119,5 +119,5 @@ def eval_text_list(text_list):
     positives = [prob[1] for prob in df['probability']]
     df['probability'] = positives
     
-    return(df)
+    return(df.to_dict('records'))
     

@@ -1,7 +1,7 @@
 from xml.etree.ElementTree import tostring
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, session
 import json
-
+import scraping
 import Machine_Learning_spark as ml
 import twitter_api_stream as tas
 
@@ -12,9 +12,28 @@ app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 default_rules = '{"rules" : [{"value": "dog has:images", "tag": "dog pictures"},{"value": "cat has:images -grumpy", "tag": "cat pictures"}]}'
 
+#Add empty hashtag_data to the session
+
+
 ## Define our routes
 @app.route("/", methods=["GET", "POST"])
 def index():
+    #Check if there is session data for the hashtag information if not initalize the session variable
+    if not session.get('hashtag_data'):
+        session['hashtag_data'] = {
+        "tw_title": "",
+        "tw_trend_loc": "",
+        "tw_trends" : []
+        }
+    #Get the hashtag data from the session
+    hashtag_data = session.get('hashtag_data')    
+
+    #Check if there is session data for the hashtag information
+    if not session.get('rules'):
+        session['rules'] = '{"rules" : [{"value": "dog has:images", "tag": "dog pictures"},{"value": "cat has:images -grumpy", "tag": "cat pictures"}]}'
+    rules = session.get('rules') 
+
+    print(session.get('hashtag_data'))
     eval_list = []
     eval = {}
     if 'evaluate' in request.form:
@@ -48,9 +67,17 @@ def index():
         #print the returned eval_list
         print(eval_list)
     
-    return render_template("index.html", eval=eval, eval_list = eval_list)
+    return render_template("index.html", eval=eval, eval_list = eval_list, hashtag_data = hashtag_data)
+
+@app.route("/scrape")
+def scrape():
+   hashtag_data = scraping.scrape_all()   
+   session['hashtag_data'] = hashtag_data
+   return redirect('/', code=302)
+
 
 if __name__ == "__main__":
+   app.secret_key = ".."
    app.run(port=5001)
 
 
