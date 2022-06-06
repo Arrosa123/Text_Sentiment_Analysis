@@ -33,7 +33,7 @@ def index():
         session['rules'] = '{"rules" : [{"value": "dog has:images", "tag": "dog pictures"},{"value": "cat has:images -grumpy", "tag": "cat pictures"}]}'
     rules = session.get('rules') 
 
-    print(session.get('hashtag_data'))
+    #print(session.get('hashtag_data'))
     eval_list = []
     eval = {}
     if 'evaluate' in request.form:
@@ -66,6 +66,10 @@ def index():
         
         #print the returned eval_list
         print(eval_list)
+
+    if 'update-rules' in request.form:  
+        new_rules = tas.create_rules(hashtag_data)
+        session['rules'] = new_rules
     
     return render_template("index.html", eval=eval, eval_list = eval_list, hashtag_data = hashtag_data)
 

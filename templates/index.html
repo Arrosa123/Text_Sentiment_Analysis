@@ -46,12 +46,14 @@
               </form>
               <table>
                 <tr>
+                  <th>Tag</th>
                   <th>Text </th>
                   <th>Prediction</th>
                   <th>Probability</th>
                 </tr>
               {% for evaluated in eval_list %}
                 <tr>
+                  <td>{{evaluated.tag}}</td>
                   <td>{{evaluated.text}}</td>
                   <td>{{evaluated.prediction}}</td>
                   <td>{{evaluated.probability}}</td>
@@ -68,6 +70,10 @@
             <div class="hashtags-body">
               <h2>Trending Hashtags</h2>
               <p><a class="btn btn-primary btn-lg active" href="/scrape" role="button">Update Hashtags</a></p>
+              <form action="/" method="post">
+                <label for="update-rules">Twitter Filter:</label>
+                <p><input type="submit" name="update-rules" value="update-rules"></p>
+            </form>
               <table>
                 <tr>
                   <th>Rank </th>

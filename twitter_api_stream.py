@@ -22,6 +22,18 @@ def bearer_oauth(r):
     r.headers["User-Agent"] = "v2FilteredStreamPython"
     return r
 
+def create_rules(hashtag_data):
+        new_rules = '{"rules" : ['
+        counter = 0
+        for hashtag in hashtag_data['tw_trends']:
+            counter = counter + 1
+            if counter == 1:
+                new_rules = new_rules + '{"value": "' + hashtag['hashtag'] + ' -is:retweet lang:en -has:links -has:media", "tag": "' + hashtag['hashtag'] + '"}'
+            else:
+                new_rules = new_rules + ',{"value": "' + hashtag['hashtag'] + ' -is:retweet lang:en -has:links -has:media", "tag": "' + hashtag['hashtag'] + '"}'
+        new_rules = new_rules + ']}'        
+        print(new_rules)
+        return(new_rules)
 
 def get_rules():
     response = requests.get(
@@ -104,7 +116,7 @@ def get_stream(set):
         if response_line:
             # get the current tweet json
             json_response = json.loads(response_line)    
-            
+ 
             # Keep count of the processed tweets
             count = count + 1 
             # initialize a dict to hold the current tweet
@@ -118,7 +130,7 @@ def get_stream(set):
             all_responses.append(tweet)
 
             #print(json.dumps(json_response, indent=4, sort_keys=True))
-            print(count)
+            print('tweets streamed: ' + str(count))
     #take the streamed responses, put it into a dataframe and print the dataframe        
     #df = pd.DataFrame(all_responses)
     #print(df)

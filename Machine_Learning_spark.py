@@ -114,7 +114,7 @@ def eval_text_list(text_list):
     #Predict the sentiment of the text using the restored predictor
     test_results = predictor.transform(cleaned)
 
-    df = test_results.select("text", "prediction", "probability").toPandas()
+    df = test_results.select("text", "tag", "prediction", "probability").toPandas()
 
     positives = [prob[1] for prob in df['probability']]
     df['probability'] = positives
