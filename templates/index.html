@@ -10,17 +10,18 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
     />
   </head>
-  <body>
+  <body style="background-color:rgb(161, 207, 245);"></body>
     <div class="container">
       <!-- Add Jumbotron to Header -->
-      <div class="jumbotron text-center">
+      <div class="col-md-12 jumbotron text-center" style="background-image: url(https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210722215846/sentiment-analysis.jpg);">  >
         <h1>Twitter Text Analysis</h1>
         <h2>by Ilan Prudhomme, Nayan Barhate, Arrosa Qayyum and Kiran Dave</h2>
         </div>
+       
 
       <!-- Add section for Eval Response -->
       <div class="row" id="text-eval">
-        <div class="col-md-6">
+        <div class="col-md-3">
           <div class="media">
             <div class="media-body">
               <h2>Simple Text Evaluation</h2>
@@ -30,44 +31,20 @@
                   <p><input type="submit" name="evaluate" value="Evaluate"></p>
               </form>
               <h4 class="media-heading">Evaluated Text: {{ eval.text }}</h4>
-              <p>Prediction: {{ eval.prediction }}</p>
+              <p>Prediction:  {{ eval.prediction }}</p>
               <p>Probability: {{ eval.probability }}</p>    
             </div>
           </div>
         </div>
-        <div class="col-md-6">
-          <div class="media">
-            <div class="media-body">
-              <h2>Pull and Evaluate Current</h2>
-              <form action="/" method="post">
-                  <label for="text-area">Twitter Filter:</label>
-                  <textarea id="twitter-rules" name="twitter-rules" rows="4" cols="50">{{session['rules']}}</textarea><br><br>
-                  <p><input type="submit" name="tweet-pull" value="tweet-pull"></p>
-              </form>
-              <table>
-                <tr>
-                  <th>Text </th>
-                  <th>Prediction</th>
-                  <th>Probability</th>
-                </tr>
-              {% for evaluated in eval_list %}
-                <tr>
-                  <td>{{evaluated.text}}</td>
-                  <td>{{evaluated.prediction}}</td>
-                  <td>{{evaluated.probability}}</td>
-                </tr>
-              {% endfor %}
-              </table>
-            </div>
-            
-          </div>
-
-        </div>
-        <div class="col-md-12">
+        <div class="col-md-3">
           <div class="hashtags">
             <div class="hashtags-body">
               <h2>Trending Hashtags</h2>
               <p><a class="btn btn-primary btn-lg active" href="/scrape" role="button">Update Hashtags</a></p>
+              <form action="/" method="post">
+                <label for="update-rules">Twitter Filter:</label>
+                <p><input type="submit" name="update-rules" value="update-rules"></p>
+            </form>
               <table>
                 <tr>
                   <th>Rank </th>
@@ -84,10 +61,61 @@
             
           </div>
 
-        </div>        
+        </div>    
+        <div class="col-md-6">
+          <div class="media">
+            <div class="media-body">
+              <h2>Pull and Evaluate Current</h2>
+              <form action="/" method="post">
+                  <label for="text-area">Twitter Filter:</label>
+                  <textarea id="twitter-rules" name="twitter-rules" rows="4" cols="50">{{session['rules']}}</textarea><br><br>
+                  <p><input type="submit" name="tweet-pull" value="tweet-pull"></p>
+              </form>
+              
+            </div>
+            
+          </div>
+
+        </div>
+        <br>
+        <br>
+        <div class="col-md-12">
+          <div class="media">
+            <div class="media-body">
+              <table>
+                <tr>
+                  <th>Tag</th>
+                  <th>Text </th>
+                  <th>Prediction</th>
+                  <th>Probability</th>
+                </tr>
+                {% for evaluated in eval_list %}
+                <tr>
+                  <td>{{evaluated.tag}}</td>
+                  <td>{{evaluated.text}}</td>
+                  <td>{{evaluated.prediction}}</td>
+                  <td>{{evaluated.probability}}</td>
+                </tr>
+                {% endfor %}
+              </table>
+            </div>
+          </div>
       </div>
 
-    
+
+      <div class="row" style="padding-bottom: 10px;">
+        <div class="col-md-12">
+            <img src="..\static\images\daily_hour_chart (1).png" alt="" width="1000px" height="320" style="border:2px solid black">
+        </div>
+
+
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <img src="..\static\images\Feelings level.png" alt="" width="1000px" height="320" style="border:2px solid black">
+        </div>
+    </div>
+
     </div>
   </body>
 </html>
