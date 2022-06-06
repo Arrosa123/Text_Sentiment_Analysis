@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Twitter Text Analysis</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Add Jumbotron to Header -->
+      <div class="jumbotron text-center">
+        <h1>Twitter Text Analysis</h1>
+        <h2>by Ilan Prudhomme, Nayan Barhate, Arrosa Qayyum and Kiran Dave</h2>
+        </div>
+
+      <!-- Add section for Eval Response -->
+      <div class="row" id="text-eval">
+        <div class="col-md-12">
+          <div class="media">
+            <div class="media-body">
+              <h2>Text Evaluation</h2>
+              <form action="/" method="post">
+                  <label for="text-input">Input Text:</label>
+                  <input type="text" id="text-input" name="text-input"><br><br>
+                  <p><input type="submit" name="evaluate" value="Evaluate"></p>
+              </form>
+              <h4 class="media-heading">Evaluated Text: {{ eval.text }}</h4>
+              <p>Prediction: {{ eval.prediction }}</p>
+              <p>Probability: {{ eval.probability }}</p>    
+            </div>
+          </div>
+        </div>
+      </div>
+        <div class="row" style="padding-bottom: 10px;">
+            <div class="col-md-12">
+                <img src="../image/daily_hour_chart.png" alt="" width="1000px" height="320" style="border:2px solid black">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <img src="../image/Feelings level.png" alt="" width="1000px" height="320" style="border:2px solid black">
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
