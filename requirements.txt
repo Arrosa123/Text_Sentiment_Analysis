@@ -7,3 +7,6 @@ sklearn
 h2o
 numpy
 scipy
+splinter
+bs4
+webdriver_manager
