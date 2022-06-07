@@ -11,3 +11,4 @@ splinter
 bs4
 webdriver_manager
 selenium
+pyspark
