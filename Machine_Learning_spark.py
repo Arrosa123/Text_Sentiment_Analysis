@@ -129,5 +129,5 @@ def eval_text_list(text_list):
     top_10 = df.sort_values(by=['probability'], ascending=False).head(10)
     bottom_10 = df.sort_values(by=['probability'], ascending=True).head(10)
     
-    return(df.to_dict('records'), top_10.to_dict('records'), bottom_10.to_dict('records'))
+    return(df, top_10.to_dict('records'), bottom_10.to_dict('records'))
     
