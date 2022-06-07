@@ -116,8 +116,18 @@ def eval_text_list(text_list):
 
     df = test_results.select("text", "tag", "prediction", "probability").toPandas()
 
-    positives = [prob[1] for prob in df['probability']]
-    df['probability'] = positives
+    positive_score = [prob[1] for prob in df['probability']]
     
-    return(df.to_dict('records'))
+    df['probability'] = positive_score
+
+    percents = ["{:.2%}".format(prob) for prob in df['probability']]
+    df['percent'] = percents
+
+    df.loc[df['prediction'] == 1.0, 'prediction'] = 'Positive'
+    df.loc[df['prediction'] == 0.0, 'prediction'] = 'Negative'
+
+    top_10 = df.sort_values(by=['probability'], ascending=False).head(10)
+    bottom_10 = df.sort_values(by=['probability'], ascending=True).head(10)
+    
+    return(df.to_dict('records'), top_10.to_dict('records'), bottom_10.to_dict('records'))
     
