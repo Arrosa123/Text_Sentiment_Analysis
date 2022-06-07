@@ -72,6 +72,8 @@ def index():
         #print the returned eval_list
         print(eval_list)
 
+       
+
     # If the button to update the rules based on the trending hashtags is pressed
     if 'update-rules' in request.form:  
         new_rules = tas.create_rules(hashtag_data)
