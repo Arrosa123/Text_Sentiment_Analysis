@@ -7,10 +7,9 @@
 }
 
 body {
-    background-color: rgb(161, 207, 245);
-    font-family: 'Lexend';
+    background-color: rgb(171, 206, 232);
 }
 
-table, th, td {
-    border:2px solid black;
+table {
+    border:1px solid black;
   }
