@@ -1,0 +1,16 @@
+.jumbotron h1 {
+    color:inherit
+}
+
+.jumbotron h2 {
+    color: inherit;
+}
+
+body {
+    background-color: rgb(161, 207, 245);
+    font-family: 'Lexend';
+}
+
+table, th, td {
+    border:2px solid black;
+  }
