@@ -2,6 +2,7 @@ import requests
 import os
 import json
 import pandas as pd
+from flask import session
 
 
 # To set your enviornment variables in your terminal run the following line:
@@ -95,8 +96,8 @@ def set_rules(rules):
     print(json.dumps(response.json()))
 
 
-def get_stream(set):
-    
+def get_stream(countOfTweets):
+    countOfTweets = int(countOfTweets)
     response = requests.get(
         "https://api.twitter.com/2/tweets/search/stream", auth=bearer_oauth, stream=True,
     )
@@ -110,7 +111,7 @@ def get_stream(set):
     all_responses = []
     count = 0
     for response_line in response.iter_lines():
-        if count >= 10:
+        if count >= countOfTweets:
             break;
 
         if response_line:
@@ -119,13 +120,19 @@ def get_stream(set):
  
             # Keep count of the processed tweets
             count = count + 1 
+
             # initialize a dict to hold the current tweet
             tweet = {}
 
             # extract the data from the tweet and store it in our variable
+            tweet['count'] = count
             tweet['id'] = json_response["data"]["id"]
             tweet["text"] = json_response["data"]["text"]
             tweet["tag"] = json_response["matching_rules"][0]["tag"]
+
+            # Update Session with current tweet.
+            session['current_tweet'] = tweet 
+
             # add the tweet to our response list
             all_responses.append(tweet)
 
