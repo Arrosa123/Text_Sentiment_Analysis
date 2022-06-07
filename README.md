@@ -50,7 +50,8 @@ Using PySpark to create a data pipeline for NLP.
 
 
 ## Team members: 
-  * Arrosa Qayyum: [linkedin.com/in/arrosa-qayyum-824b02225](linkedin.com/in/arrosa-qayyum-824b02225)
+  * Arrosa Qayyum: 
+  [linkedin.com/in/arrosa-qayyum-824b02225](linkedin.com/in/arrosa-qayyum-824b02225)
   * Ilan Prudhomme: [linkedin.com/in/iprudhomme](linkedin.com/in/iprudhomme)
   * Nayan Barhate: [linkedin.com/in/nayan-barhate-83a65a187](linkedin.com/in/nayan-barhate-83a65a187)
   * Kiran Dave: [linkedin.com/in/kiran-dave-42b716136](linkedin.com/in/kiran-dave-42b716136)
