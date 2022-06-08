@@ -55,7 +55,7 @@ We created a webpage for showing this tool and put a section where the user can 
 ![image2](https://github.com/Arrosa123/Text_Sentiment_Analysis/blob/main/static/images/site_page2.png)
 
 ## Team members: 
-  * Arrosa Qayyum: [linkedin.com/in/arrosa-qayyum-824b02225](linkedin.com/in/arrosa-qayyum-824b02225)
-  * Ilan Prudhomme: [linkedin.com/in/iprudhomme](linkedin.com/in/iprudhomme)
-  * Nayan Barhate: [linkedin.com/in/nayan-barhate-83a65a187](linkedin.com/in/nayan-barhate-83a65a187)
-  * Kiran Dave: [linkedin.com/in/kiran-dave-42b716136](linkedin.com/in/kiran-dave-42b716136)
+  * Arrosa Qayyum: [linkedin.com/in/arrosa-qayyum-824b02225](https://www.linkedin.com/in/arrosa-qayyum-824b02225/)
+  * Ilan Prudhomme: [linkedin.com/in/iprudhomme](https://www.linkedin.com/in/iprudhomme/)
+  * Nayan Barhate: [linkedin.com/in/nayan-barhate-83a65a187](https://www.linkedin.com/in/nayan-barhate-83a65a187/)
+  * Kiran Dave: [linkedin.com/in/kiran-dave-42b716136](https://www.linkedin.com/in/kiran-dave-42b716136/)
