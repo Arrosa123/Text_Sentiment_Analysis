@@ -1,0 +1,1 @@
+{"plot_data": {"tags": ["JHOPE", "Matthew McConaughey", "hobi"], "positives": [0, 3, 1], "negatives": [2, 2, 2]}, "tags": ["JHOPE", "Matthew McConaughey", "hobi"], "totals": {"predictions": ["Negative", "Positive"], "counts": [6, 4]}, "total_count": 10, "positive_count": 4}
