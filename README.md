@@ -47,7 +47,12 @@ Using PySpark to create a data pipeline for NLP.
 * Git
 * AWS
 
+## Webpage:
+We created a webpage for showing this tool and put a section where the user can input a sentence and our tool will analyze the tone of the sentence as positive or negative. We then scraped the web for tweeter trending tweets and analyzed it. To represent the data visually we created some graphs. Here are the screenshots of our webpages.
 
+![webpage1](https://github.com/Arrosa123/Text_Sentiment_Analysis/blob/main/static/images/site_page1.png)
+
+![image2](https://github.com/Arrosa123/Text_Sentiment_Analysis/blob/main/static/images/site_page2.png)
 
 ## Team members: 
   * Arrosa Qayyum: [linkedin.com/in/arrosa-qayyum-824b02225](linkedin.com/in/arrosa-qayyum-824b02225)
