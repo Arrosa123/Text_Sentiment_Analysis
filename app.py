@@ -83,7 +83,10 @@ def index():
         with open('static/resources/evaluated_tweets.json', 'w') as fp:
             json.dump(eval_list, fp)
 
-        session['eval_list'] = json.dumps(eval_list)  
+        try:
+            session['eval_list'] = json.dumps(eval_list)  
+        except:
+            session['eval_list'] = '{}'
         #print the returned eval_list
         print(session['eval_list'])
 
