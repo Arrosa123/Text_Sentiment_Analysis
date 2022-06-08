@@ -1,0 +1,15 @@
+.jumbotron h1 {
+    color:inherit
+}
+
+.jumbotron h2 {
+    color: inherit;
+}
+
+body {
+    background-color: rgb(171, 206, 232);
+}
+
+table {
+    border:1px solid black;
+  }
