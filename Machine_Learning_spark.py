@@ -129,5 +129,60 @@ def eval_text_list(text_list):
     top_10 = df.sort_values(by=['probability'], ascending=False).head(10)
     bottom_10 = df.sort_values(by=['probability'], ascending=True).head(10)
     
-    return(df, top_10.to_dict('records'), bottom_10.to_dict('records'))
+    data = format_results_for_plotting(df)
+
+    return(data, top_10.to_dict('records'), bottom_10.to_dict('records'))
+
+def format_results_for_plotting(df):
     
+    #df with the total count
+    totals = df.groupby(['prediction']).size().reset_index(name='counts')
+
+    #list with the distinct tags
+    tags = df.groupby(['tag']).size().reset_index(name='counts')['tag'].to_list()
+
+    #list with the distinct predictions
+    predictions = df.groupby(['prediction']).size().reset_index(name='counts')['prediction'].to_list()
+
+    # create a df with the aggregate counts
+    agg_bytag = df.groupby(['tag','prediction']).size().reset_index(name='counts')
+
+
+    #Create lists for the positive and negative counts
+    positives = []
+    negatives = []
+    for tag in tags:
+        for prediction in predictions:
+            if prediction == "Positive":
+                try:
+                    pos = int(agg_bytag.loc[(agg_bytag["tag"] == tag) & (agg_bytag["prediction"] == prediction)]['counts'].values[0])
+                except:
+                    pos = int(0)
+                positives.append(pos)
+            if prediction == "Negative":
+                try:
+                    neg = int(agg_bytag.loc[(agg_bytag["tag"] == tag) & (agg_bytag["prediction"] == prediction)]['counts'].values[0]) 
+                except:
+                    neg = int(0)
+                negatives.append(neg)
+
+    #Create the dataset for the bar graph
+    plot_data = {} 
+    plot_data['tags'] = tags
+    plot_data['positives'] = positives
+    plot_data['negatives'] = negatives   
+
+    #Create the full dataset for plotting
+    data = {}
+    data["plot_data"] = plot_data
+    data["tags"] = tags
+    data["totals"]={}
+    data["totals"]["predictions"] = totals['prediction'].to_list()
+    data["totals"]["counts"] = totals['counts'].to_list()
+    data["total_count"] = int(totals['counts'].sum())
+    data["positive_count"] = int(sum(positives))
+    
+    #return the plot information
+    return(data)
+
+
