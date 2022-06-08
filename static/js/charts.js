@@ -1,7 +1,13 @@
 function init() {
 
+var session_data = JSON.parse(eval_list_data)
   // Use the list of sample names to populate the select options
   d3.json("../resources/evaluated_tweets.json").then((data) => {
+
+    if (eval_list_data != '{}') {
+       console.log("Found the session data.")      
+       data = session_data;
+    }
     console.log(data);
 
     buildCharts(data);
@@ -14,9 +20,14 @@ init();
 
 
 // Demographics Panel 
-function buildTrendingTags(sample) {
+function buildTrendingTags(session_data) {
   d3.json("../resources/evaluated_tweets.json").then((data) => {
+
+    if (eval_list_data != '{}') {
+      data = session_data;
+   }
     var tags = data.tags;
+
     // Use d3 to select the panel with id of `#sample-metadata`
     var PANEL = d3.select("#trending-tags");
 
@@ -36,9 +47,13 @@ function buildTrendingTags(sample) {
 }
 
 // 1. Create the buildCharts function.https://iprudhomme.github.io/plotly_deployment/
-function buildCharts(sample) {
+function buildCharts(session_data) {
   // 2. Use d3.json to load and retrieve the evaluated_tweets.json file 
   d3.json("../resources/evaluated_tweets.json").then((data) => {
+
+    if (eval_list_data != '{}') {
+      data = session_data;
+    }
     // Create a variable that holds the samples array. 
     var plot_data = data.plot_data;
     

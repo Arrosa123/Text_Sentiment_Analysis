@@ -40,10 +40,16 @@
               <h4 class="media-heading">Evaluated Text: {{ eval.text }}</h4>
               <table>
                 <tr>
-                  <th>Prediction:  {{ eval.prediction }}</th>
-                  <th>Probability: {{ eval.probability }}</th>
+                  <th>Prediction</th>
+                  <th>Probability</th>
                 </tr>
-            </table>
+                <tr>
+                  <td>{{ eval.prediction }}</td>
+                  <td>{{ eval.probability }}</td>
+                </tr>
+              </table>
+              <br>
+              <p><a class="btn btn-primary active" href="/reset" role="button">Reset Current Session</a></p>
             </div>
           </div>
         </div>
