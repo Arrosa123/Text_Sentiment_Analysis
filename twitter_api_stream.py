@@ -12,7 +12,7 @@ with open('myconfig.json','r') as fh:
 os.environ["BEARER_TOKEN"] = config["BEARER_TOKEN"]
 
 bearer_token = os.environ.get("BEARER_TOKEN")
-print(bearer_token)
+
 
 def bearer_oauth(r):
     """
@@ -33,7 +33,7 @@ def create_rules(hashtag_data):
             else:
                 new_rules = new_rules + ',{"value": "' + hashtag['hashtag'] + ' -is:retweet lang:en -has:links -has:media", "tag": "' + hashtag['hashtag'] + '"}'
         new_rules = new_rules + ']}'        
-        print(new_rules)
+        #print(new_rules)
         return(new_rules)
 
 def get_rules():
@@ -45,7 +45,7 @@ def get_rules():
             "Cannot get rules (HTTP {}): {}".format(response.status_code, response.text)
         )
     print('get_rules() response:')    
-    print(json.dumps(response.json()))
+    #print(json.dumps(response.json()))
     return response.json()
 
 
@@ -93,7 +93,7 @@ def set_rules(rules):
             "Cannot add rules (HTTP {}): {}".format(response.status_code, response.text)
         )
     print('set_rules(delete) response:')      
-    print(json.dumps(response.json()))
+    #print(json.dumps(response.json()))
 
 
 def get_stream(countOfTweets):

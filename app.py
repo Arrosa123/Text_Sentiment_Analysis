@@ -79,12 +79,16 @@ def index():
         #Send the collected twitter feed to the machine learning model
         eval_list, top_10, bottom_10 = ml.eval_text_list(tweet_list)  
         
-        #print the returned eval_list
-        print(eval_list)
-
         #Save the full list to a json file. 
         with open('static/resources/evaluated_tweets.json', 'w') as fp:
             json.dump(eval_list, fp)
+
+        try:
+            session['eval_list'] = json.dumps(eval_list)  
+        except:
+            session['eval_list'] = '{}'
+        #print the returned eval_list
+        print(session['eval_list'])
 
     # If the button to update the rules based on the trending hashtags is pressed
     if 'update-rules' in request.form:  
@@ -96,7 +100,7 @@ def index():
 
 
     
-    return render_template("index.html", eval=eval, eval_list = eval_list, hashtag_data = hashtag_data, top_10 = top_10, bottom_10 = bottom_10)
+    return render_template("index.html", eval=eval, hashtag_data = hashtag_data, top_10 = top_10, bottom_10 = bottom_10)
 
 # add the resources folder to the path so that data will be available to javascript
 @app.route("/<path:path>")
@@ -113,8 +117,19 @@ def scrape():
 # The scrape route performs a lookup on a website for the current trending Twitter hashtags and returns them for our use.
 @app.route("/plot")
 def plot():
-   print('Rendering plots.html')
-   return render_template("plots.html")
+    #Check if there is session data for the hashtag information
+    if not session.get('eval_list'):
+        session['eval_list'] = {}
+    eval_list = session.get('eval_list') 
+    print('Rendering plots.html')
+    return render_template("plots.html", eval_list = eval_list)
+
+# The scrape route performs a lookup on a website for the current trending Twitter hashtags and returns them for our use.
+@app.route("/reset")
+def reset():
+   for key in list(session.keys()):
+       session.pop(key)
+   return redirect('/', code=302)
 
 if __name__ == "__main__":
    app.secret_key = ".."
