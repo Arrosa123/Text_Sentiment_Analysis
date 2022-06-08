@@ -2,12 +2,21 @@
     color:inherit
 }
 
-.jumbotron h2 {
+.jumbotron {
+    background-image: url("../../static/images/sentiment-analysis4.jpg");
+    background-size: cover;
+    background-color: lightcyan;
     color: inherit;
-}
+    text-align: center;
+    color: rgb(10, 125, 182);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }  
 
 body {
     background-color: rgb(171, 206, 232);
+    font: "Times New Roman, serif"
 }
 
 table {
