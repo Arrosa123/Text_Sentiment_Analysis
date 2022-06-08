@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Font Loaded -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lexend">
+
+    <title>Twitter Text Analysis</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="..\static\css\style.css"
+      
+    />    
+  </head>
+  <body class="body">
+    <div class="container">
+      <!-- Add Jumbotron to Header -->
+      <div class="col-md-12 jumbotron text-center" style="background-image: url(https://media.geeksforgeeks.org/wp-content/cdn-uploads/20210722215846/sentiment-analysis.jpg); background-repeat: no-repeat; background-position: center; background-size: 500px;">
+        <h1>Twitter Text Analysis</h1>
+        <h2>By Ilan Prudhomme, Nayan Barhate, Arrosa Qayyum and Kiran Dave</h2>
+      </div>
+ 
+      <div class="row" id="text-eval">
+        <div class="col-md-3">
+          <div class="media">
+            <div class="media-body">
+              <h2>Simple Text Evaluation</h2>
+              <form action="/" method="post">
+                  <label for="text-input">Input Text:</label>
+                  <input type="text" id="text-input" name="text-input"><br><br>
+                  <p><input type="submit" name="evaluate" value="Evaluate Text" class="btn btn-primary"></p>
+              </form>
+              <h4 class="media-heading">Evaluated Text: {{ eval.text }}</h4>
+              <table>
+                <tr>
+                  <th>Prediction:  {{ eval.prediction }}</th>
+                  <th>Probability: {{ eval.probability }}</th>
+                </tr>
+            </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="hashtags">
+            <div class="hashtags-body">
+              <h2>Trending Hashtags</h2>
+              <p><a class="btn btn-primary active" href="/scrape" role="button">Update Hashtags</a></p>
+
+              <table  class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">Rank </th>
+                    <th scope="col">Hashtag</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for tw_trend in hashtag_data.tw_trends %}
+                  <tr>
+                    <td>{{tw_trend.rank}}</td>
+                    <td>{{tw_trend.hashtag}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+            
+          </div>
+
+        </div>    
+        <div class="col-md-6">
+          <div class="media">
+            <div class="media-body">
+              <h2>Pull and Evaluate Current</h2>
+              <form action="/" method="post">
+                  <label for="text-area">Twitter Filter Rules:</label>
+                  <textarea id="twitter-rules" name="twitter-rules" rows="12" cols="70">{{session['rules']}}</textarea><br><br>
+                  <p><input type="submit" name="update-rules" value="Update Rules from trending hashtags" class="btn btn-primary"></p>
+                  <label for="quantity">Select Number of Tweets to pull (between 10 and 1000):</label>
+                  <input type="number" id="quantity" name="quantity" value=10 min=10 max=1000>
+                  <input type="submit" name="tweet-pull" value="Pull Tweets" class="btn btn-primary">
+                  <p>Larger number of tweets may take some time to complete.</p>
+                  
+              </form>
+            </div>
+          </div>
+        </div>
+        <span></span>
+      </div>
+      <div class="row" id="top-10"> 
+        <div class="col-md-6">
+          <div class="media">
+            <div class="media-body">
+
+              <table  class="table">
+                <thead>
+                  <tr>
+                    <th colspan="4">Top 10 Positive Tweets</th>
+                  </tr>
+                  <tr>
+                    <th scope="col">Tag</th>
+                    <th scope="col">Text </th>
+                    <th scope="col">Prediction</th>
+                    <th scope="col">Probability</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for evaluated in top_10 %}
+                  <tr>
+                    <td>{{evaluated.tag}}</td>
+                    <td>{{evaluated.text}}</td>
+                    <td>{{evaluated.prediction}}</td>
+                    <td>{{evaluated.percent}}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+        <div class="media">
+          <div class="media-body">
+
+            <table  class="table">
+              <thead>
+                <tr>
+                  <th colspan="4">Top 10 Negative Tweets</th>
+                </tr>
+                <tr>
+                  <th scope="col">Tag</th>
+                  <th scope="col">Text </th>
+                  <th scope="col">Prediction</th>
+                  <th scope="col">Probability</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for evaluated in bottom_10 %}
+                <tr>
+                  <td>{{evaluated.tag}}</td>
+                  <td>{{evaluated.text}}</td>
+                  <td>{{evaluated.prediction}}</td>
+                  <td>{{evaluated.percent}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        </div>
+        </div>       
+      </div>  
+
+      <div class="row" style="padding-bottom: 10px;" id="graphs-images">
+        <div class="col-md-12">
+            <img src="..\static\images\daily_hour_chart (1).png" alt="" width="1000px" height="320" style="border:2px solid black">
+        </div>
+      </div>  
+
+      <div class="row">
+          <div class="col-md-12">
+              <img src="..\static\images\Feelings level.png" alt="" width="1000px" height="320" style="border:2px solid black">
+          </div>
+      </div>
+      
+    </div>
+  </body>
+</html>
