@@ -1,5 +1,5 @@
 # Text_Sentiment_Analysis
-![image](https://github.com/Arrosa123/Text_Sentiment_Analysis/blob/main/images1.png)
+![image](https://github.com/Arrosa123/Text_Sentiment_Analysis/blob/main/static/images/images1.png)
 
 ## Purpose and reason to select this topic:
 
